@@ -36,4 +36,13 @@ public interface KtCallResolverMixIn : KtAnalysisSessionMixIn {
 
     public fun KtArrayAccessExpression.resolveCall(): KtCall? =
         analysisSession.callResolver.resolveCall(this)
+
+    public fun KtElement.resolveCall(): KtCall? = when (this) {
+        is KtSimpleNameExpression -> resolveAccessorCall()
+        is KtCallElement -> resolveCall()
+        is KtBinaryExpression -> resolveCall()
+        is KtUnaryExpression -> resolveCall()
+        is KtArrayAccessExpression -> resolveCall()
+        else -> null
+    }
 }
