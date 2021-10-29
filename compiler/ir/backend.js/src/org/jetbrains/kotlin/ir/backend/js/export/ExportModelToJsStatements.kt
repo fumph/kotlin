@@ -132,7 +132,7 @@ class ExportModelToJsStatements(
                 val staticsExport = (staticFunctions + staticProperties + declaration.nestedClasses)
                     .flatMap { generateDeclarationExport(it, newNameSpace, esModules) }
 
-                (klassExport?.let { listOf(it) } ?: emptyList()) + staticsExport + innerClassesAssignments
+                listOfNotNull(klassExport) + staticsExport + innerClassesAssignments
             }
         }
     }
