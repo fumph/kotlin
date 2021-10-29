@@ -40,9 +40,9 @@ object MyObject {
 // FILE: test.js
 function box() {
     if (new this["export_nested_class"].B.Foo().bar("K") != "OK") return "fail 1";
-    if (new this["export-nested-class"].MyObject.A().valueA() != "OK") return "fail 2";
-    if (new this["export-nested-class"].MyObject.B().valueB() != "OK") return "fail 3";
-    if (new this["export-nested-class"].MyObject.C().valueC() != "OK") return "fail 4";
+    if (new this["export_nested_class"].MyObject.A().valueA() != "OK") return "fail 2";
+    if (new this["export_nested_class"].MyObject.B().valueB() != "OK") return "fail 3";
+    if (new this["export_nested_class"].MyObject.C().valueC() != "OK") return "fail 4";
 
     return "OK"
 }
